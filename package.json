@@ -1,0 +1,21 @@
+{
+  "name": "express_workshop",
+  "version": "1.0.0",
+  "description": "API REST using express.js",
+  "keywords": [
+    "api",
+    "rest",
+    "express",
+    "nodejs"
+  ],
+  "license": "ISC",
+  "author": "Alexis Serrato",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
