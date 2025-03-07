@@ -3,19 +3,29 @@
   "version": "1.0.0",
   "description": "API REST using express.js",
   "keywords": [
-    "api",
-    "rest",
+    "node",
     "express",
-    "nodejs"
+    "jwt",
+    "mysql"
   ],
   "license": "ISC",
   "author": "Alexis Serrato",
   "type": "commonjs",
   "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/CSerratoDev/proyect_Express/issues"
+  },
   "scripts": {
+    "start": "npx nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSerratoDev/proyect_Express.git"
+  },
   "dependencies": {
-    "express": "^4.21.2"
-  }
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
+  },
+  "homepage": "https://github.com/CSerratoDev/proyect_Express#readme"
 }
