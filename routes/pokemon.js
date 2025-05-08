@@ -10,20 +10,20 @@ pokemon.post("/", async (req, res) => {
         query += `VALUES('${pok_name}', ${pok_height}, ${pok_weight}, ${pok_base_experience})`;
         const rows = await db.query(query);
         if (rows.affectedRows == 1){
-            return res.status(201).json({code: 201, message: "Pokemon insertado ✅"});
+            return res.status(201).json({code: 201, message: "Pokemon created ✅"});
         }
-        return res.status(500).json({code: 500, message: "Ocurrio un error"});
+        return res.status(500).json({code: 500, message: "An error occurred"});
     }
-    return res.status(500).json({code: 500, message: "Campos incompletos"});
+    return res.status(500).json({code: 500, message: "Incomplete fields"});
 });
 
 pokemon.delete("/:id([0-9]{1,3})", async (req, res, next) => {
     const query = `DELETE FROM pokemon WHERE pok_id=${req.params.id}`;
     const rows = await db.query(query);
     if (rows.affectedRows == 1){
-        return res.status(200).json({code: 200, message: "Pokemon eliminado"});
+        return res.status(200).json({code: 200, message: "Pokemon eliminated"});
     }
-    return res.status(404).json({code: 404, message: "Pokemon no encontrado"});
+    return res.status(404).json({code: 404, message: "Pokemon not found"});
 });
 
 pokemon.put("/:id([0-9]{1,3})", async (req, res, next) => {
@@ -36,11 +36,11 @@ pokemon.put("/:id([0-9]{1,3})", async (req, res, next) => {
         const rows = await db.query(query);
 
         if (rows.affectedRows == 1){
-            return res.status(200).json({code: 200, message: "Pokemon actualizado ✅"});
+            return res.status(200).json({code: 200, message: "Pokemon updated ✅"});
         }
-        return res.status(500).json({code: 500, message: "Ocurrio un error"});
+        return res.status(500).json({code: 500, message: "An error occurred"});
     }
-    return res.status(500).json({code: 500, message: "Campos incompletos"});
+    return res.status(500).json({code: 500, message: "Incomplete fields"});
 });
 
 pokemon.patch("/:id([0-9]{1,3})", async (req, res, next) => {    
@@ -49,12 +49,12 @@ pokemon.patch("/:id([0-9]{1,3})", async (req, res, next) => {
         const rows = await db.query(query);
         
         if (rows.affectedRows == 1){
-            return res.status(200).json({code: 200, message: "Pokemon actualizado ✅"});
+            return res.status(200).json({code: 200, message: "Pokemon updated ✅"});
         }    
         
-        return res.status(500).json({code: 500, message: "Ocurrio un error"});
+        return res.status(500).json({code: 500, message: "An error occurred"});
     }
-    return res.status(500).json({code: 500, message: "Campos incompletos"});
+    return res.status(500).json({code: 500, message: "Incomplete fields"});
 });
 
 pokemon.get("/", async (req,res,next) => {
@@ -68,7 +68,7 @@ pokemon.get("/:id([0-9]{1,3})", async (req, res, next) => {
         const pkmn = await db.query("SELECT * FROM pokemon WHERE pok_id="+id+";");
         return res.status(200).json({code: 1, message: pkmn});
     }
-    return res.status(404).send({code: 404, message: "Pokemon no encontrado"});
+    return res.status(404).send({code: 404, message: "Pokemon not found"});
 });
 
 pokemon.get("/:name([A-Za-z]+)", async (req,res,next) => {
@@ -77,7 +77,7 @@ pokemon.get("/:name([A-Za-z]+)", async (req,res,next) => {
     if(pkmn.length > 0 ){
         return res.status(200).json({code: 200, message: pkmn});
     }
-    return res.status(404).send({code: 404, message: "Pokemon no encontrado"});
+    return res.status(404).send({code: 404, message: "Pokemon not found"});
 });
 
 module.exports = pokemon;
